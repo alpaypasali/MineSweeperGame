@@ -37,7 +37,6 @@ public class MineSweeper {
     public void run() {
         System.out.println("Mayın Tarlası Oyuna Hoşgeldiniz !");
         map.createMines(); // Mayın haritasını oluşturur
-        map.printMap();
         board.createBoard(); // Mayın tahtasını oluşturur
         board.printBoard(); // Mayın tahtasını yazdırır
         while (isGameRunning()){
