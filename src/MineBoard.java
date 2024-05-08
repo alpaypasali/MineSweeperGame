@@ -32,13 +32,11 @@ class MineBoard {
     // Belirtilen hücreye komşu olan mayınların sayısını tahtada gösterir
     public void calculateCellValues(int row , int column , int value){
         board[row][column] = String.valueOf(value);
-
     }
     // Oyunun kazanılıp kazanılmadığını kontrol eder
     public boolean isGameWon() {
         int totalCells = row * column;
         int closedCells = 0;
-
         // Tüm hücrelerin durumunu kontrol et
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < column; j++) {
@@ -48,11 +46,8 @@ class MineBoard {
                 }
             }
         }
-
         // Eğer açılmayan hücre sayısı, toplam hücre sayısının 1/4'üne eşitse, oyun kazanılmıştır
         return closedCells == totalCells / 4;
     }
-
-
 
 }

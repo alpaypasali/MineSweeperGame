@@ -42,8 +42,6 @@ class MineMap {
             }
             System.out.println(" ");
         }
-
-
     }
     // Belirtilen hücrede bir mayın olup olmadığını kontrol eder
     public boolean hasMine(int row, int column) {
@@ -71,5 +69,4 @@ class MineMap {
     private boolean isValidCell(int row, int column) {
         return row >= 0 && row < this.row && column >= 0 && column < this.column;
     }
-
 }

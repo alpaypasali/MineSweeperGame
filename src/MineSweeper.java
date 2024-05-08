@@ -44,8 +44,6 @@ public class MineSweeper {
             System.out.println("=============================================");
             if (isGameRunning())  // Oyun devam ediyorsa sadece board'u tekrar yazdır
                 board.printBoard();
-
-
         }
     }
     // Oyunun devam edip etmediğini kontrol eder
@@ -84,17 +82,13 @@ public class MineSweeper {
            System.out.println("Oyunu Kazandınız !");
            gameRunning = false;
            board.printBoard();
-
            return;
-
         }
-
     }
     // Girilen tahminin geçerli olup olmadığını kontrol eder
     private boolean isValidGuess(int guessRow, int guessColumn) {
         return guessRow >= 0 && guessRow < row && guessColumn >= 0 && guessColumn < column;
     }
-
 }
 
 
