@@ -23,7 +23,7 @@ public class MineSweeper {
     // Satır ve sütun sayılarını kontrol ederek geçerli değerler alınmasını sağlar
     private int[] setRowAndColumn(int row, int column) {
         Scanner scanner = new Scanner(System.in);
-        while (row < 3 || column < 3) {
+        while (row < 2 || column < 2) {
             System.out.println("Satır ve sütun değerleri en az 3 olmalıdır. Lütfen geçerli değerler girin:");
             System.out.print("Satır: ");
             row = scanner.nextInt();
@@ -56,10 +56,8 @@ public class MineSweeper {
         int guessRow, guessColumn;
     // Geçerli bir tahmin alana kadar döngüyü devam ettirir
         do {
-            System.out.print("Tahmin satırını girin: ");
-            guessRow = scanner.nextInt();
-            System.out.print("Tahmin sütununu girin: ");
-            guessColumn = scanner.nextInt();
+            guessRow = getIntegerInput(scanner, "Tahmin satırını girin: ");
+            guessColumn = getIntegerInput(scanner, "Tahmin sütununu girin: ");
 
             if (!isValidGuess(guessRow, guessColumn)) {
                 System.out.println("Geçersiz tahmin. Lütfen satır ve sütun değerlerini kontrol edin.");
@@ -85,6 +83,19 @@ public class MineSweeper {
            return;
         }
     }
+    //İnt değer giriş kontrolü , string değer girilirse int değer alana kadar döngü devam eder
+    private int getIntegerInput(Scanner scanner, String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            if (scanner.hasNextInt()) {
+                return scanner.nextInt();
+            } else {
+                System.out.println("Geçersiz giriş. Lütfen bir tam sayı girin.");
+                scanner.next(); // Bufferı temizle
+            }
+        }
+    }
+
     // Girilen tahminin geçerli olup olmadığını kontrol eder
     private boolean isValidGuess(int guessRow, int guessColumn) {
         return guessRow >= 0 && guessRow < row && guessColumn >= 0 && guessColumn < column;
